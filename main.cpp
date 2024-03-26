@@ -146,10 +146,6 @@ public:
                                                                       description(std::move(description_)),
                                                                       duration(0) {}
 
-    void addTrack(Track *track) {
-        tracks.push_back(track);
-        duration += track->getDuration();
-    }
 
     friend std::ostream &operator<<(std::ostream &os, const Playlist &playlist) {
         os << "Playlist ID: " << playlist.playlistId << std::endl;
@@ -164,10 +160,17 @@ public:
         return os;
     }
 
-    ~Playlist() {
-        for (auto track: tracks) {
-            delete track;
-        }
+    ~Playlist() = default;
+
+//    ~Playlist() {
+//        for (auto track: tracks) {
+//            delete track;
+//        }
+//    }
+
+    void addTrack(Track *track) {
+        tracks.push_back(track);
+        duration += track->getDuration();
     }
 };
 
