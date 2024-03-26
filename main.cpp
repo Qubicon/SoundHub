@@ -4,6 +4,7 @@
 #include <utility>
 #include <vector>
 #include <random.hpp>
+#include <iomanip>
 
 using Random = effolkronium::random_static;
 using namespace std::chrono;
